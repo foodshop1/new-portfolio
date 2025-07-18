@@ -1,5 +1,4 @@
-import { motion } from 'motion/react';
-import { TextEffect } from '../../components/motion-primitives/text-effect';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
@@ -32,13 +31,63 @@ export default function Home() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex space-x-8 text-white"
+            className="flex space-x-4 text-white"
           >
-            <li className="hover:text-purple-300 transition-colors cursor-pointer">Home</li>
-            <li className="hover:text-purple-300 transition-colors cursor-pointer">About</li>
-            <li className="hover:text-purple-300 transition-colors cursor-pointer">Projects</li>
-            <li className="hover:text-purple-300 transition-colors cursor-pointer">Skills</li>
-            <li className="hover:text-purple-300 transition-colors cursor-pointer">Contact</li>
+            <li>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
+                onClick={() => {
+                  /* scroll to home */
+                }}
+              >
+                Home
+              </motion.button>
+            </li>
+            <li>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
+                onClick={() => {
+                  /* scroll to about */
+                }}
+              >
+                About
+              </motion.button>
+            </li>
+            <li>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
+                onClick={() => {
+                  /* scroll to projects */
+                }}
+              >
+                Projects
+              </motion.button>
+            </li>
+            <li>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
+                onClick={() => {
+                  /* scroll to skills */
+                }}
+              >
+                Skills
+              </motion.button>
+            </li>
+            <li>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
+                onClick={() => {
+                  /* scroll to contact */
+                }}
+              >
+                Contact
+              </motion.button>
+            </li>
           </motion.ul>
         </div>
       </motion.nav>
@@ -83,24 +132,33 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16 relative z-10"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors text-lg"
+              className="px-8 py-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors text-lg relative z-10"
+              onClick={() => {
+                alert('placeholder');
+                /* scroll to work/projects */
+              }}
+              type="button"
             >
               View My Work
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-purple-400 text-white rounded-lg font-semibold hover:bg-purple-400 hover:text-black transition-colors text-lg"
+              className="px-8 py-4 border-2 border-purple-400 text-white rounded-lg font-semibold hover:bg-purple-400 hover:text-black transition-colors text-lg relative z-10"
+              onClick={() => {
+                alert('placeholder');
+                /* scroll to contact */
+              }}
+              type="button"
             >
               Get In Touch
             </motion.button>
           </motion.div>
-
           {/* Social Media Icons */}
           <motion.div
             initial={{ opacity: 0 }}
