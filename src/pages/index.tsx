@@ -27,7 +27,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-2xl font-bold text-purple-300"
           >
-            Portfolio
+            Elroy Quan
           </motion.div>
 
           <motion.ul
