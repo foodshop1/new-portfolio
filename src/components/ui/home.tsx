@@ -13,95 +13,14 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-400/5 rounded-full blur-2xl"></div>
       </div>
 
-      {/* Navigation */}
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="absolute top-0 left-0 right-0 p-6 z-10"
-      >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-2xl font-bold text-purple-300"
-          >
-            Elroy Quan
-          </motion.div>
-
-          <motion.ul
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex space-x-4 text-white"
-          >
-            <li>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
-                onClick={() => {
-                  /* scroll to home */
-                }}
-              >
-                Home
-              </motion.button>
-            </li>
-            <li>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
-                onClick={() => {
-                  /* scroll to about */
-                }}
-              >
-                About
-              </motion.button>
-            </li>
-            <li>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
-                onClick={() => {
-                  /* scroll to projects */
-                }}
-              >
-                Projects
-              </motion.button>
-            </li>
-            <li>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
-                onClick={() => {
-                  /* scroll to skills */
-                }}
-              >
-                Skills
-              </motion.button>
-            </li>
-            <li>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 rounded-md bg-transparent text-white hover:text-purple-300 transition-colors focus:outline-none border-none"
-                onClick={() => {
-                  /* scroll to contact */
-                }}
-              >
-                Contact
-              </motion.button>
-            </li>
-          </motion.ul>
-        </div>
-      </motion.nav>
-
       {/* Main Content */}
       <div className="flex items-center justify-center min-h-screen px-6">
         <div className="text-center max-w-4xl">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="mb-8"
           >
@@ -111,7 +30,8 @@ export default function Home() {
                 Elroy Quan
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
+                  whileInView={{ width: '100%' }}
+                  viewport={{ once: true, amount: 0.8 }}
                   transition={{ delay: 1, duration: 0.8 }}
                   className="absolute bottom-0 left-0 h-1 bg-purple-400"
                 />
@@ -122,7 +42,8 @@ export default function Home() {
           {/* Description */}
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.8 }}
             transition={{ delay: 0.8, duration: 0.8 }}
             className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
@@ -133,7 +54,8 @@ export default function Home() {
           {/* Call to Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
             transition={{ delay: 1.2, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16 relative z-10"
           >
@@ -142,8 +64,10 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors text-lg relative z-10"
               onClick={() => {
-                alert('placeholder');
-                /* scroll to work/projects */
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
               type="button"
             >
@@ -154,8 +78,10 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 border-2 border-purple-400 text-white rounded-lg font-semibold hover:bg-purple-400 hover:text-black transition-colors text-lg relative z-10"
               onClick={() => {
-                alert('placeholder');
-                /* scroll to contact */
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
               type="button"
             >
@@ -165,7 +91,8 @@ export default function Home() {
           {/* Social Media Icons */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.8 }}
             transition={{ delay: 1.6, duration: 0.8 }}
             className="flex justify-center space-x-6"
           >
